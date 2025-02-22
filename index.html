@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Compute Cluster Tycoon</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #111;
+      color: #fff;
+      font-family: sans-serif;
+    }
+
+    #gameCanvas {
+      display: block;
+      margin: 0 auto;
+      background: #000;
+      border: 2px solid #555;
+    }
+
+    /* Simple HUD / Dashboard styling */
+    #dashboard {
+      width: 800px;
+      margin: 10px auto;
+      background: #222;
+      padding: 10px;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat span {
+      display: block;
+      font-size: 1.2em;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Dashboard / HUD -->
+  <div id="dashboard">
+    <div class="stat">
+      Budget: <span id="budgetValue"></span>
+    </div>
+    <div class="stat">
+      Power Usage: <span id="powerValue"></span>
+    </div>
+    <div class="stat">
+      Compute Power: <span id="computeValue"></span>
+    </div>
+    <div class="stat">
+      AI Level: <span id="aiLevelValue"></span>
+    </div>
+  </div>
+
+  <!-- Main Canvas -->
+  <canvas id="gameCanvas" width="800" height="400"></canvas>
+
+  <!-- Game Logic -->
+  <script src="main.js"></script>
+</body>
+</html>
