@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Server Shop</title>
+  <style>
+    body {
+      background: #111;
+      color: #fff;
+      font-family: sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    .server-option {
+      border: 1px solid #555;
+      padding: 20px;
+      margin: 10px;
+      display: inline-block;
+      width: 200px;
+    }
+    button {
+      padding: 10px 20px;
+      margin-top: 10px;
+      background: #444;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #666;
+    }
+  </style>
+</head>
+<body>
+  <h1>Server Shop</h1>
+  <p>Your Budget: $<span id="budgetValue"></span></p>
+
+  <div class="server-option">
+    <img src="assets/server_basic.png" alt="Basic Server" width="150" /><br>
+    <strong>Basic Server</strong><br>
+    Cost: $1000<br>
+    <button onclick="buyServer('basic', 1000)">Buy Basic Server</button>
+  </div>
+
+  <div class="server-option">
+    <img src="assets/server_midtier.png" alt="Mid-tier Server" width="150" /><br>
+    <strong>Mid-tier Server</strong><br>
+    Cost: $5000<br>
+    <button onclick="buyServer('midtier', 5000)">Buy Mid-tier Server</button>
+  </div>
+
+  <div class="server-option">
+    <img src="assets/server_hightier.png" alt="High-tier Server" width="150" /><br>
+    <strong>High-tier Server</strong><br>
+    Cost: $10000<br>
+    <button onclick="buyServer('hightier', 10000)">Buy High-tier Server</button>
+  </div>
+
+  <br><br>
+  <a href="index.html">Back to Game</a>
+
+  <script>
+    // Load current budget from localStorage
+    let budget = Number(localStorage.getItem("budget")) || 5000;
+    document.getElementById("budgetValue").innerText = budget.toFixed(2);
+
+    function buyServer(type, cost) {
+      if (budget >= cost) {
+        budget -= cost;
+        localStorage.setItem("budget", budget);
+        alert("You purchased a " + type + " server!");
+        document.getElementById("budgetValue").innerText = budget.toFixed(2);
+        // Optionally, update a list of owned servers in localStorage
+      } else {
+        alert("Not enough budget!");
+      }
+    }
+  </script>
+</body>
+</html>
