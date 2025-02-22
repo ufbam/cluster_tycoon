@@ -10,16 +10,14 @@
       background: #111;
       color: #fff;
       font-family: sans-serif;
+      text-align: center;
     }
-
     #gameCanvas {
       display: block;
       margin: 0 auto;
       background: #000;
       border: 2px solid #555;
     }
-
-    /* Simple HUD / Dashboard styling */
     #dashboard {
       width: 800px;
       margin: 10px auto;
@@ -28,15 +26,29 @@
       display: flex;
       justify-content: space-around;
     }
-
     .stat {
       text-align: center;
     }
-
     .stat span {
       display: block;
       font-size: 1.2em;
       margin-top: 4px;
+    }
+    /* Navigation bar at bottom */
+    #navBar {
+      margin: 20px auto;
+      width: 800px;
+    }
+    #navBar a {
+      padding: 10px 20px;
+      background: #444;
+      color: #fff;
+      text-decoration: none;
+      margin: 5px;
+      border-radius: 5px;
+    }
+    #navBar a:hover {
+      background: #666;
     }
   </style>
 </head>
@@ -60,7 +72,14 @@
   <!-- Main Canvas -->
   <canvas id="gameCanvas" width="800" height="400"></canvas>
 
-  <!-- Game Logic -->
+  <!-- Navigation Bar -->
+  <div id="navBar">
+    <a href="server_shop.html">Server Shop</a>
+    <a href="electricity_shop.html">Buy Electricity</a>
+    <a href="training.html">Run Training Task</a>
+  </div>
+
+  <!-- Main Game Script -->
   <script src="main.js"></script>
 </body>
 </html>
