@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Training Task</title>
+  <style>
+    body {
+      background: #111;
+      color: #fff;
+      font-family: sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      background: #444;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #666;
+    }
+  </style>
+</head>
+<body>
+  <h1>Run a Training Task</h1>
+  <p>Your Budget: $<span id="budgetValue"></span></p>
+  <p>Compute Power: <span id="computePower"></span></p>
+  <p>Cost: $200 per training task (increases compute by 10 units)</p>
+  <button onclick="runTraining()">Run Training Task</button>
+  <br><br>
+  <a href="index.html">Back to Game</a>
+
+  <script>
+    let budget = Number(localStorage.getItem("budget")) || 5000;
+    let computePower = Number(localStorage.getItem("computePower")) || 50;
+
+    document.getElementById("budgetValue").innerText = budget.toFixed(2);
+    document.getElementById("computePower").innerText = computePower.toFixed(2);
+
+    function runTraining() {
+      const cost = 200;
+      if (budget >= cost) {
+        budget -= cost;
+        computePower += 10;
+        localStorage.setItem("budget", budget);
+        localStorage.setItem("computePower", computePower);
+        document.getElementById("budgetValue").innerText = budget.toFixed(2);
+        document.getElementById("computePower").innerText = computePower.toFixed(2);
+        alert("Training task complete! Compute power increased.");
+      } else {
+        alert("Not enough budget!");
+      }
+    }
+  </script>
+</body>
+</html>
